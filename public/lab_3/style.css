@@ -14,7 +14,7 @@ body {
   width: 70%;
   min-width: 800px;
   margin: 0 auto;
-  background-color: rgb(16, 110, 204);
+  background-color: rgb(101, 154, 207);
 }
 
 /* || typography */
@@ -60,8 +60,8 @@ p, li {
 }
 
 body > * {
-  background-color: rgb(0, 255, 0, 0.5);
-  padding: 1%;
+  background-color: rgb(101, 154, 207);
+  padding: 0%;
 }
 
 .main, .header, nav, .article, .aside, footer, section {
@@ -133,7 +133,7 @@ nav a, nav span {
 
 .aside img {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .footer {
