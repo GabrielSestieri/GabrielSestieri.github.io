@@ -60,7 +60,7 @@ p, li {
 }
 
 body > * {
-  background-color: red;
+  background-color: blue;
   padding: 1%;
 }
 
@@ -74,7 +74,7 @@ h1 {
   text-transform: uppercase;
 }
 
-#headerimg {
+.headerimg {
   display: block;
   height: 60px;
   padding-top: 20.15px;
