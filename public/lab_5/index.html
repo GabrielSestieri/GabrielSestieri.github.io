@@ -56,7 +56,7 @@
 
                     <li>
                         <button type="submit" class="button" id="submit" name="submit">Submit</button>
-                        <button type="button" class="buton" name="activate" onclick="testFunction()">Activate</button>
+                        <button type="button" class="buton" name="activate" onclick="clickMe()">Activate</button>
                     </li>
 
                 </ul>
@@ -72,9 +72,11 @@
                 })
             }
             function clickMe() {
-                const content = document.querySelector("h1");
-                console.log(content);
-                content.innerHTML = "<h3>Hello World!</h3>"
+                fetch('/api')
+                .then((response) => response.text())
+                .then((response) => {
+                    console.log(response);
+                })
             }
         </script>
     </body>
