@@ -56,7 +56,7 @@
 
                     <li>
                         <button type="submit" class="button" id="submit" name="submit">Submit</button>
-                        <button type="button" class="buton" name="activate" onclick="testFunction(), changeAge()">Activate</button>
+                        <button type="button" class="buton" name="activate" onclick="testFunction()">Activate</button>
                     </li>
 
                 </ul>
@@ -76,23 +76,22 @@
                         
                         const bckcolor = document.querySelector("body").style.cssText = "background-color: rgb(199, 158, 123);"
                         console.log(bckcolor);
-                    
-                        let mrgn = document.getElementsByClassName(".flex-outer");
-                        
-                        
+                                            
                         const chkbxlbl = document.querySelector(".checkbox-list-label");
                         chkbxlbl.innerHTML = "Fruits"
+                        
+                        const fruits = ["mango", "apple", "papaya"];
+                        const chkbx = document.querySelectorAll(".flex-inner label");
+                        fruits.forEach(function(fruits) {
+                            chkbx.innerHTML = fruits
+                            console.log(chkbx)
+                        });
+
                     })  
                 }
 
-            const fruits = ["mango", "apple", "papaya"];
-            function changeAge() {
-                const chkbx = document.querySelectorAll(".flex-inner label");
-                for (let fruit = 0; fruit < fruits.length; fruit++) {
-                    chkbx.innerHTML = "fruits[fruit]"
-                    console.log(chkbx)
-                }    
-            }
+            
+            
 
 
             function clickMe() {
