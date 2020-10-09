@@ -64,31 +64,41 @@
 
         </div>
         <script>
-            function changeLabel() {
-                    const elements = document.querySelectorAll('.flex-inner li label')
-                    const fruitArray = ["mango", "apple", "papaya"];
-                    elements.forEach(elements, i => {
-                        const text = elements.innerText;
-                        console.log(text)
-                        elements.innerText = fruits[i]
+            function testFunction() {
+                fetch('/api')
+                .then((response) => response.text())
+                .then((response) => {
+                    const hdr = document.querySelector("h1")
+                    hdr.innerHTML = response
+
+                    const ttl = document.querySelector("title")
+                    ttl.innerHTML = response
+                    
+                    const bckcolor = document.querySelector("body").style.cssText = "background-color: rgb(199, 158, 123);"
+                    console.log(bckcolor);
+                                        
+                    const chkbxlbl = document.querySelector(".checkbox-list-label");
+                    chkbxlbl.innerHTML = "Fruits"
+
+                    const labels = document.querySelectorAll('.flex-inner li label')
+                    const fruits = ['mango', 'apple', 'papaya']
+                    elements.forEach((el, i) => {
+                        const text = el.innerText;
+                        el.innerText = fruits[i]
+                        
                     })
 
-                }
-            
-
+                })  
+            }
 
             function clickMe() {
                 const content = document.querySelector("h1");
                 console.log(content);
                 content.innerHTML = "<h3>Hello World!</h3>"
             }
-            
+
         </script>
-        
     </body>
-
-    
-
 </html>
 
 
