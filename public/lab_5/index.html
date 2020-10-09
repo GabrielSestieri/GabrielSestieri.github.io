@@ -94,14 +94,17 @@
                         }); */
 
                     })  
-
-                    const elements = document.querySelectorAll('.flex-inner li label')
-                    const fruits = ["mango", "apple", "papaya"]
-                    elements.forEach(fruits, i => {
-                        const text = fruits.innerText;
-                        fruits.innerText = fruits[i]
-                        console.log(fruits)
+                    function changeLabel() {
+                        const elements = document.querySelectorAll('.flex-inner li label')
+                        const fruits = ["mango", "apple", "papaya"]
+                        elements.forEach(fruits, i => {
+                            const text = fruits.innerText;
+                            fruits.innerText = fruits[i]
+                            console.log(fruits)
                         })
+
+                    }
+                    
                 }
 
             
