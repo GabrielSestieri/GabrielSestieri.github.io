@@ -56,7 +56,7 @@
 
                     <li>
                         <button type="submit" class="button" id="submit" name="submit">Submit</button>
-                        <button type="button" class="buton" name="activate" onclick="testFunction()">Activate</button>
+                        <button type="button" class="buton" name="activate" onclick="testFunction(), changeAge()">Activate</button>
                     </li>
 
                 </ul>
@@ -66,26 +66,51 @@
         <script>
             function testFunction() {
                 fetch('/api')
-                .then((response) => response.text())
-                .then((response) => {
-                    console.log(response);
-                })
-                const hdr = document.querySelector("h1")
-                hdr.innerHTML = response
-                const ttl = document.querySelector("title")
-                ttl.innerHTML = response
+                    .then((response) => response.text())
+                    .then((response) => {
+                        const hdr = document.querySelector("h1")
+                        hdr.innerHTML = response
 
-                const bckcolor = document.querySelector("body")
-                bckcolor.innerHTML = "background-color: rgb(199, 158, 123);"
+                        const ttl = document.querySelector("title")
+                        ttl.innerHTML = response
+                    })
+                    const bckcolor = document.querySelector("body").style.cssText = "background-color: rgb(199, 158, 123);"
+                    console.log(bckcolor);
+                
+                    const mrgn = document.getElementsByClassName(".flex-outer").style = "margin: 0 auto;"
+                    console.log(mrgn)
+
+                    const chkbxlbl = document.querySelector(".checkbox-list-label");
+                    chkbxlbl.innerHTML = "Fruits"
+                    
+                 
+
+                
+
+                
+
+            }
+            const fruits = ["mango", "apple", "papaya"];
+            function changeAge(fruit) {
+                const chkbx = document.querySelectorAll(".flex-inner");
+                console.log(chkbx)
+                chkbx.innerHTML = fruits
+                console.log(chkbx)
+
+                
             }
             function clickMe() {
                 const content = document.querySelector("h1");
                 console.log(content);
                 content.innerHTML = "<h3>Hello World!</h3>"
             }
+        
         </script>
+        
     </body>
 
-
+    
 
 </html>
+
+
