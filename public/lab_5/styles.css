@@ -46,14 +46,22 @@
 }
 
 .flex-inner li {
-    width: 80px;
+    width: 95px;
 }
+
+
 
 body {
     background-color: rgb(19, 158, 123);
 }
 
 
+.button {
+    margin-right: 10px;
+}
 
+.checkbox-list-label {
+
+}
 
 
