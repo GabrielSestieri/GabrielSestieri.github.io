@@ -82,10 +82,13 @@
                         
                         const fruits = ["mango", "apple", "papaya"];
                         const chkbx = document.querySelectorAll(".flex-inner label");
-                        fruits.forEach(function(fruits) {
-                            chkbx.innerHTML = "fruits"
+                        for (i = 0; i < fruits.length; i++) {
+                            chkbx.innerHTML = fruits[i]
+                        }
+                        /*fruits.forEach(function(fruits) {
+                            chkbx.innerHTML = fruits
                         console.log(chkbx)
-                        });
+                        }); */
 
                     })  
                 }
