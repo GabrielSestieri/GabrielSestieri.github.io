@@ -75,18 +75,21 @@
                     ttl.innerHTML = response
                     
                     const bckcolor = document.querySelector("body").style.cssText = "background-color: rgb(199, 158, 123);"
-                    console.log(bckcolor);
-                                        
-                    const chkbxlbl = document.querySelector(".checkbox-list-label");
+
+                    
+                                  
+                    const chkbxlbl = document.querySelector(".checkbox-list-label")
                     chkbxlbl.innerHTML = "Fruits"
 
                     const labels = document.querySelectorAll('.flex-inner li label')
-                    const fruits = ['mango', 'apple', 'papaya']
+                    const fruits = ['Mango', 'Apple', 'Papaya']
                     labels.forEach((el, i) => {
                         const text = el.innerText;
                         el.innerText = fruits[i]
                         
                     })
+
+                    const margin = document.querySelector('.flex-outer').style.margin = '0 auto';
 
                 })  
             }
