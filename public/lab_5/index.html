@@ -80,13 +80,7 @@
                         const chkbxlbl = document.querySelector(".checkbox-list-label");
                         chkbxlbl.innerHTML = "Fruits"
 
-                        const chkbx = document.querySelectorAll('.flex-inner li label')
-                        const fruits = ["mango", "apple", "papaya"]
-                        chkbx.forEach(el, i => {
-                            const text = el.innerText;
-                            el.innerText = fruits[i]
-                            console.log(el)
-                        })
+                        
 
 
 
@@ -100,6 +94,14 @@
                         }); */
 
                     })  
+                    
+                    const elements = document.querySelectorAll('.flex-inner li label')
+                    const fruits = ["mango", "apple", "papaya"]
+                    elements.forEach(el, i => {
+                        const text = el.innerText;
+                        el.innerText = fruits[i]
+                        console.log(el)
+                        })
                 }
 
             
