@@ -79,17 +79,17 @@
                     const chkbxlbl = document.querySelector(".checkbox-list-label")
                     chkbxlbl.innerHTML = "Fruits"
 
-                    const labels = document.querySelectorAll('.flex-inner li label')
+                    const checkboxes = document.querySelectorAll('.flex-inner li label')
                     const fruits = ['Mango', 'Apple', 'Papaya']
-                    labels.forEach((el, i) => {
+                    checkboxes.forEach((el, i) => {
                         const text = el.innerText;
                         el.innerText = fruits[i]
                     })
+                    })
 
-                    const margin = document.querySelector('.flex-outer').style.margin = '0 auto';
+                    const margin = document.querySelector('.flex-outer').style.margin = '0 auto';  
+                } 
 
-                })  
-            }
 
             function clickMe() {
                 const content = document.querySelector("h1");
