@@ -12,6 +12,10 @@ body {
   min-height: 100%;
 }
 
+.container .flex-outer {
+  
+}
+
 .header {
   color: #fff;
   display: flex;
@@ -77,3 +81,4 @@ body {
   padding: 0 16px;
   margin:0 auto;
 }
+
