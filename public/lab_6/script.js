@@ -38,10 +38,10 @@ document.body.addEventListener('submit', async (evt) => {
         const randomCountry = getRandomInt(listLength);
         const country = fromServer[randomCountry];
         list.append(country);
-        return country;
+        return list;
       });
       console.log('Table')
-      console.table(randomCountries)
+      console.table(list)
 
       const $newol = $("<ol class='flex-inner'></ol>");
       $('form').prepend($newol);
