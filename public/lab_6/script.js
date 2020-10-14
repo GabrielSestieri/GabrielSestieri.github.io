@@ -1,6 +1,6 @@
 // You may wish to find an effective randomizer function on MDN.
-function getCountry() {
-  return fromServer[Math.floor(Math.random() * fromServer.length)];
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
 }
 
 function range(int) {
@@ -32,12 +32,31 @@ document.body.addEventListener('submit', async (evt) => {
   })
     .then((fromServer) => fromServer.json())
     .then((fromServer) => {
-      const countries = fromServer
-      const randomCountries = [];
+      const list = [];
+      const randomCountries = list.map((i) => {
+        const listLength = fromServer.length;
+        const randomCountry = getRandomInt(listLength);
+        const country = fromServer[randomCountry];
+        return country;
+      });
+      console.log("Table")
+      console.table(randomCountries)
+
+      const $newol = $("<ol class='flex-inner'></ol>");
+      $('form').prepend($newol);
+
+      /*
       for (let i = 0; i < 9; i + 1) {
         const country = countries[Math.floor(Math.random() * countries.length)];
-        randomCountries.append(country); }
+        randomCountries.append(country);
+      }
+      randomCountries.sort((decending) => {})
+      for (let i = 0; i < length(randomCountries); i + 1) {
+        $('.flex-inner').append('<li> randomCountries[i] </li>');
+      } 
+      */
       console.log(randomCountries);
+      return generateList;
     })
     .catch((err) => console.log(err));
 });
