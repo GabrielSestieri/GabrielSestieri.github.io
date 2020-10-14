@@ -38,13 +38,10 @@ document.body.addEventListener('submit', async (evt) => {
         const listLength = fromServer.length;
         const randomCountryIndex = getRandomInt(listLength);
         indexArray.push(randomCountryIndex)
-        if (randomCountryIndex in indexArray) {
-          const country = fromServer[(getRandomInt(listLength))];
-        } else {
+        if (randomCountryIndex !== indexArray) {
           const country = fromServer[randomCountryIndex];
-          return country
+          return country;
         }
-        return country;
       });
 
       const sortedCountries = randomCountries.sort((a, b) => sortFunction(b, a, 'name'));
