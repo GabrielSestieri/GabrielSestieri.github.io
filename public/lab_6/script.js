@@ -32,6 +32,7 @@ document.body.addEventListener('submit', async (evt) => {
   })
     .then((fromServer) => fromServer.json())
     .then((fromServer) => {
+      const countries = fromServer
       const randomCountries = [];
       for (let i = 0; i < 9; i + 1) {
         const country = countries[Math.floor(Math.random() * countries.length)];
