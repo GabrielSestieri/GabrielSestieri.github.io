@@ -1,5 +1,3 @@
-const { default: countries } = require("./countries");
-
 // You may wish to find an effective randomizer function on MDN.
 function getCountry() {
   return fromServer[Math.floor(Math.random() * fromServer.length)];
@@ -38,7 +36,7 @@ document.body.addEventListener('submit', async (evt) => {
       for (let i = 0; i < 9; i + 1) {
         const country = countries[Math.floor(Math.random() * countries.length)];
         randomCountries.append(country); }
-      console.log(country);
+      console.log(randomCountries);
     })
     .catch((err) => console.log(err));
 });
