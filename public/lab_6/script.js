@@ -40,8 +40,7 @@ document.body.addEventListener('submit', async (evt) => {
         return country;
       });
       console.log('Table')
-      console.log(typeof randomCountries)
-      console.table(randomCountries)
+      console.log(randomCountries)
       console.table(arr)
 
       const $newol = $("<ol class='flex-inner'></ol>");
