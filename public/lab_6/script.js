@@ -41,6 +41,7 @@ document.body.addEventListener('submit', async (evt) => {
       });
       console.log('Table')
       console.table(randomCountries)
+      console.table(arr)
 
       const $newol = $("<ol class='flex-inner'></ol>");
       $('form').prepend($newol);
