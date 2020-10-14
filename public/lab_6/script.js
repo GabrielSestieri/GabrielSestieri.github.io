@@ -45,7 +45,7 @@ document.body.addEventListener('submit', async (evt) => {
       $('.flex-outer form .flex-inner').remove();
       $('.flex-outer form').prepend("<ol class='flex-inner'></ol>");
 
-      const listContent = sortedCountries.map((country) => `<li><label for="country.name">${country.code}</label>`
+      const listContent = sortedCountries.map((country) => `<li><label for="country.name">${country.name}</label>`
         + `<input type="checkbox" id="${country.name}" name="name" value="${country.code}"></li>`);
 
       $('.flex-inner').append(listContent);
