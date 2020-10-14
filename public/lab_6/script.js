@@ -1,3 +1,5 @@
+const { default: countries } = require("./countries");
+
 // You may wish to find an effective randomizer function on MDN.
 function getCountry() {
   return fromServer[Math.floor(Math.random() * fromServer.length)];
@@ -24,7 +26,7 @@ document.body.addEventListener('submit', async (evt) => {
   evt.preventDefault(); // this stops whatever the browser wanted to do itself.
   const form = $(evt.target).serializeArray(); // here we're using jQuery to serialize the form
   fetch('/api', {
-    method: 'GET',
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
@@ -32,11 +34,12 @@ document.body.addEventListener('submit', async (evt) => {
   })
     .then((fromServer) => fromServer.json())
     .then((fromServer) => {
+      const country = fromServer(countries);
       const randomCountries = [];
-      for (let i = 0; i < 9; i + 1) {
+      /* for (let i = 0; i < 9; i + 1) {
         const country = fromServer[Math.floor(Math.random() * fromServer.length)];
-        randomCountries.append(country); }
-      console.log(randomCountries);
+        randomCountries.append(country); } */
+      console.log(country);
     })
     .catch((err) => console.log(err));
 });
