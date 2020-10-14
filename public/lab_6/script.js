@@ -22,7 +22,7 @@ function sortFunction(a, b, key) {
   return 0;
 }
 
-document.body.addEventListener('submit', async (eevt) => {
+document.body.addEventListener('submit', async (evt) => {
   evt.preventDefault(); // this stops whatever the browser wanted to do itself.
   const form = $(e.target).serializeArray(); // here we're using jQuery to serialize the form
   fetch('/api', {
@@ -35,8 +35,7 @@ document.body.addEventListener('submit', async (eevt) => {
     .then((fromServer) => fromServer.json())
     .then((fromServer) => {
       const randomCountries = getCountry();
-      console.log(randomCountries);
-      // console.log('fromServer', fromServer);
+      console.log('Countries',randomCountries);
     })
     .catch((err) => console.log(err));
 });
