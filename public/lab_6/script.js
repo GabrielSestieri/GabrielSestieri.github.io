@@ -34,12 +34,12 @@ document.body.addEventListener('submit', async (evt) => {
     .then((fromServer) => {
       const arr = range(10);
       const randomCountries = arr.map((i) => {
+        console.log(randomCountries[i])
         const listLength = fromServer.length;
         const randomCountryIndex = getRandomInt(listLength);
         const country = fromServer[randomCountryIndex];
-        if (country !== randomCountries) {
-          return country;
-        }
+        
+        return country
       });
       console.table(randomCountries)
 
