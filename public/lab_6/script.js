@@ -1,4 +1,4 @@
-const { default: countries } = require("./countries");
+const { default: countries } = require('./countries');
 
 // You may wish to find an effective randomizer function on MDN.
 function getCountry() {
@@ -34,8 +34,8 @@ document.body.addEventListener('submit', async (eevt) => {
   })
     .then((fromServer) => fromServer.json())
     .then((fromServer) => {
-      const random_countries = getCountry();
-      console.log(randon_countries);
+      const randomCountries = getCountry();
+      console.log(randomCountries);
       // console.log('fromServer', fromServer);
     })
     .catch((err) => console.log(err));
