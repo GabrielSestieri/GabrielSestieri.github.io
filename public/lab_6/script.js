@@ -35,8 +35,8 @@ document.body.addEventListener('submit', async (eevt) => {
     .then((fromServer) => fromServer.json())
     .then((fromServer) => {
       const random_countries = getCountry();
-      console.log(countries);
-      //console.log('fromServer', fromServer);
+      console.log(randon_countries);
+      // console.log('fromServer', fromServer);
     })
     .catch((err) => console.log(err));
 });
