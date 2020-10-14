@@ -33,29 +33,22 @@ document.body.addEventListener('submit', async (evt) => {
     .then((fromServer) => fromServer.json())
     .then((fromServer) => {
       const arr = range(10);
-      const randomCountries = arr.map(i => {
+      const randomCountries = arr.map((i) => {
         const listLength = fromServer.length;
-        const randomCountry = getRandomInt(listLength);
-        const country = fromServer[randomCountry];
+        const randomCountryIndex = getRandomInt(listLength);
+        const country = fromServer[randomCountryIndex];
         return country;
       });
-      console.log('Table')
-      console.log(randomCountries)
-      console.table(arr)
 
-      const $newol = $("<ol class='flex-inner'></ol>");
-      $('form').prepend($newol);
+      const sortedCountries = randomCountries.sort((a, b) => sortFunction(b, a, 'name'));
+      console.table(sortedCountries)
+      $('.flex-outer form .flex-inner').remove();
+      $('.flex-outer form').prepend("<ol class='flex-inner'></ol>");
 
-      /*
-      for (let i = 0; i < 9; i + 1) {
-        const country = countries[Math.floor(Math.random() * countries.length)];
-        randomCountries.append(country);
-      }
-      randomCountries.sort((decending) => {})
-      for (let i = 0; i < length(randomCountries); i + 1) {
-        $('.flex-inner').append('<li> randomCountries[i] </li>');
-      } 
-      */
+      const listContent = sortedCountries.map((country) => `<li><label for="country.name">${country.code}</label>`
+        + `<input type="checkbox" id="${country.name}" name="name" value="${country.code}"></li>`);
+
+      $('.flex-inner').append(listContent);
     })
     .catch((err) => console.log(err));
 });
