@@ -37,17 +37,19 @@ document.body.addEventListener('submit', async (evt) => {
         const listLength = fromServer.length;
         const randomCountryIndex = getRandomInt(listLength);
         const country = fromServer[randomCountryIndex];
-        return country;
+        if (country !== randomCountries) {
+          return country;
+        }
       });
+      console.table(randomCountries)
 
       const sortedCountries = randomCountries.sort((a, b) => sortFunction(b, a, 'name'));
-      console.table(sortedCountries)
+
       $('.flex-outer form .flex-inner').remove();
       $('.flex-outer form').prepend("<ol class='flex-inner'></ol>");
 
       const listContent = sortedCountries.map((country) => `<li><label for="country.name">${country.name}</label>`
         + `<input type="checkbox" id="${country.name}" name="name" value="${country.code}"></li>`);
-
       $('.flex-inner').append(listContent);
     })
     .catch((err) => console.log(err));
