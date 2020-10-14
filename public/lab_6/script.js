@@ -34,13 +34,14 @@ document.body.addEventListener('submit', async (evt) => {
     .then((fromServer) => {
       const arr = range(10);
       const randomCountries = arr.map(i => {
+        console.log(i);
         const listLength = fromServer.length;
         const randomCountry = getRandomInt(listLength);
         const country = fromServer[randomCountry];
         return country;
       });
       console.log('Table')
-      console.log(randomCountries)
+      console.table(randomCountries)
 
       const $newol = $("<ol class='flex-inner'></ol>");
       $('form').prepend($newol);
@@ -55,8 +56,6 @@ document.body.addEventListener('submit', async (evt) => {
         $('.flex-inner').append('<li> randomCountries[i] </li>');
       } 
       */
-      console.log(randomCountries);
-      
     })
     .catch((err) => console.log(err));
 });
