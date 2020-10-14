@@ -41,7 +41,7 @@ document.body.addEventListener('submit', async (evt) => {
         return list;
       });
       console.log('Table')
-      console.table(list)
+      console.log(list)
 
       const $newol = $("<ol class='flex-inner'></ol>");
       $('form').prepend($newol);
