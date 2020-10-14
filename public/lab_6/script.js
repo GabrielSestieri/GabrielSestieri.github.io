@@ -36,7 +36,7 @@ document.body.addEventListener('submit', async (evt) => {
       const randomCountries = arr.map(i => {
         console.log(i);
         const listLength = fromServer.length;
-        const randomCountry = getRandomInt(listLength);
+        const randomCountry = getRandomInt(i);
         const country = fromServer[randomCountry];
         return country;
       });
