@@ -32,8 +32,8 @@ document.body.addEventListener('submit', async (evt) => {
   })
     .then((fromServer) => fromServer.json())
     .then((fromServer) => {
-      const list = [];
-      const randomCountries = list.map((i) => {
+      const arr = range(10);
+      const randomCountries = arr.map(i => {
         const listLength = fromServer.length;
         const randomCountry = getRandomInt(listLength);
         const country = fromServer[randomCountry];
@@ -41,7 +41,7 @@ document.body.addEventListener('submit', async (evt) => {
       });
       console.log(country)
       console.log('Table')
-      console.log(list)
+      console.log(randomCountries)
 
       const $newol = $("<ol class='flex-inner'></ol>");
       $('form').prepend($newol);
