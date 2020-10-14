@@ -37,7 +37,7 @@ document.body.addEventListener('submit', async (evt) => {
         const listLength = fromServer.length;
         const randomCountry = getRandomInt(listLength);
         const country = fromServer[randomCountry];
-        randomCountries.append(country)
+        list.append(country);
         return country;
       });
       console.log('Table')
