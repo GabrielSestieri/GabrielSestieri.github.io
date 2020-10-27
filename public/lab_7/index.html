@@ -3,11 +3,11 @@
   <head>
     <title>Gabriel Sestieri's Lab 6</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
-      crossorigin="anonymous">
-    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script  defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyCGU0PK5ks0K4jqqAZ6l2A6FKWUknklPkM"  type="text/javascript"></script>
+
   </head>
   <body>
     <div class="wrapper">
@@ -16,6 +16,17 @@
           <h1>Gabriel Sestieri's Lab 6</h1>
         </div>
         <form method="post" action="/api">
+          <div class="form-group">
+            <label>Your current location: </label> 
+            <input class="form-control" id="current_loc" placeholder="Enter your current location." /> 
+            <input id="origin" name="origin" required="" type="hidden" />
+        </div>
+
+        <div class="form-group">
+            <label>Voting County: </label> 
+            <input class="form-control" id="user_county" placeholder="Enter your voting county" /> 
+            <input id="county" name="county" required="" type="hidden" />
+        </div>
           <button
             type="submit"
             class="submitButton"

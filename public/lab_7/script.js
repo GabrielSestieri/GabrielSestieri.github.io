@@ -32,17 +32,23 @@ document.body.addEventListener('submit', async (evt) => {
   })
     .then((fromServer) => fromServer.json())
     .then((fromServer) => {
-      const arr = range(10);
-      const randomCountries = arr.map((i) => {
-        const indexArray = []
-        const listLength = fromServer.length;
-        const randomCountryIndex = getRandomInt(listLength);
-        indexArray.push(randomCountryIndex)
-        if (randomCountryIndex !== indexArray) {
-          const country = fromServer[randomCountryIndex];
-          return country;
-        }
-      });
+      $(function() {
+        // add input listeners
+        google.maps.event.addDomListener(window, 'load', function () {
+            var current_loc = new google.maps.places.Autocomplete(document.getElementById('current_loc'));
+            var destinations = new google.maps.places.Autocomplete(document.getElementById('county'));
+    
+            google.maps.event.addListener(current_loc, 'place_changed', function () {
+                var current_loc = current_loc.getPlace();
+                var from_address = current_loc.formatted_address;
+                $('#origin').val(from_address);
+            });
+    
+            google.maps.event.addListener(to_places, 'place_changed', function () {
+                var to_place = to_places.getPlace();
+                var to_address = to_place.formatted_address;
+                $('#destination').val(to_address);
+            });
 
       const sortedCountries = randomCountries.sort((a, b) => sortFunction(b, a, 'name'));
 
