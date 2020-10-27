@@ -49,8 +49,8 @@ document.body.addEventListener('submit', async (evt) => {
       $('.flex-outer form .flex-inner').remove();
       $('.flex-outer form').prepend("<ol class='flex-inner'></ol>");
 
-      const listContent = sortedCountries.map((country) => `<li> <input type="checkbox" id="${country.name}" name="name" value="${country.code}">`
-        + `<label for="country.name">${country.name}</label></li>`);
+      const listContent = sortedCountries.map((country) => `<li> <input type="checkbox" id="${country.county}" name="name" value="${country.address}">`
+        + `<label for="country.name">${country.county}</label></li>`);
       $('.flex-inner').append(listContent);
     })
     .catch((err) => console.log(err));
