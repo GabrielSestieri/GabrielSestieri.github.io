@@ -32,16 +32,25 @@ document.body.addEventListener('submit', async (evt) => {
   })
     .then((fromServer) => fromServer.json())
     .then((fromServer) => {
-      $(function () {
+
+      $(document).ready(function () {
         // add input listeners
-        google.maps.event.addDomListener(window, 'load', function () {
-          var current_loc = new google.maps.places.Autocomplete(document.getElementById('current_loc'));
-          var voting_county = new google.maps.places.Autocomplete(document.getElementById('user_county'));
+          var current_loc = new google.maps.places.Autocomplete((document.getElementById('current_loc')), {
+            types: ['geocode'],
+          });
+
+          var voting_county = new google.maps.places.Autocomplete((document.getElementById('user_county')), {
+            types: ['geocode']
+          });
 
           google.maps.event.addListener(current_loc, 'place_changed', function () {
             var current_loc = current_loc.getPlace();
             var from_address = current_loc.formatted_address;
-            $('#origin').val(from_address);
+          });
+
+          google.maps.event.addListener(voting_county, 'place_changed', function () {
+            var current_loc = current_loc.getPlace();
+            var from_address = current_loc.formatted_address;
           });
 
 
