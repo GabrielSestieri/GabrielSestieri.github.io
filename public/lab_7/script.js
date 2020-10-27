@@ -32,32 +32,33 @@ document.body.addEventListener('submit', async (evt) => {
   })
     .then((fromServer) => fromServer.json())
     .then((fromServer) => {
-      $(function() {
+      $(function () {
         // add input listeners
         google.maps.event.addDomListener(window, 'load', function () {
-            var current_loc = new google.maps.places.Autocomplete(document.getElementById('current_loc'));
-            var destinations = new google.maps.places.Autocomplete(document.getElementById('county'));
-    
-            google.maps.event.addListener(current_loc, 'place_changed', function () {
-                var current_loc = current_loc.getPlace();
-                var from_address = current_loc.formatted_address;
-                $('#origin').val(from_address);
-            });
-    
-            google.maps.event.addListener(to_places, 'place_changed', function () {
-                var to_place = to_places.getPlace();
-                var to_address = to_place.formatted_address;
-                $('#destination').val(to_address);
-            });
+          var current_loc = new google.maps.places.Autocomplete(document.getElementById('current_loc'));
+          var voting_county = new google.maps.places.Autocomplete(document.getElementById('user_county'));
 
-      const sortedCountries = randomCountries.sort((a, b) => sortFunction(b, a, 'name'));
+          google.maps.event.addListener(current_loc, 'place_changed', function () {
+            var current_loc = current_loc.getPlace();
+            var from_address = current_loc.formatted_address;
+            $('#origin').val(from_address);
+          });
 
-      $('.flex-outer form .flex-inner').remove();
-      $('.flex-outer form').prepend("<ol class='flex-inner'></ol>");
 
-      const listContent = sortedCountries.map((country) => `<li> <input type="checkbox" id="${country.county}" name="name" value="${country.address}">`
-        + `<label for="country.name">${country.county}</label></li>`);
-      $('.flex-inner').append(listContent);
+          const sortedCountries = randomCountries.sort((a, b) => sortFunction(b, a, 'name'));
+
+          $('.flex-outer form .flex-inner').remove();
+          $('.flex-outer form').prepend("<ol class='flex-inner'></ol>");
+
+          const listContent = sortedCountries.map((country) => `<li> <input type="checkbox" id="${country.county}" name="name" value="${country.address}">`
+            + `<label for="country.name">${country.county}</label></li>`);
+          $('.flex-inner').append(listContent);
+        })
+
+      });
     })
     .catch((err) => console.log(err));
-});
+  }
+
+
+
