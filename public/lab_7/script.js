@@ -21,7 +21,7 @@ function sortFunction(a, b, key) {
 }
 
 document.body.addEventListener('submit', async (evt) => {
-  evt.preventDefault(); // this stops whatever the browser wanted to do itself.
+ // this stops whatever the browser wanted to do itself.
   const form = $(evt.target).serializeArray(); // here we're using jQuery to serialize the form
   fetch('/api', {
     method: 'POST',
@@ -32,6 +32,7 @@ document.body.addEventListener('submit', async (evt) => {
   })
     .then((fromServer) => fromServer.json())
     .then((fromServer) => {
+      evt.preventDefault();
 
       $(document).ready(function () {
         // add input listeners
