@@ -1,41 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Gabriel Sestieri's Lab 6</title>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script  defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSs1yDD-gBeLwJhZptud-Iga12Ytw27Uk&libraries=&v=weekly,places"  type="text/javascript"></script>
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" id="bootstrap-css" rel="stylesheet" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class="container flex-outer">
-        <div class="header">
-          <h1>Voting Distance</h1>
-        </div>
-        <form method="post" action="/api">
-          <div class="form-group">
-            <label>Your current location: </label> 
-            <input class="form-control" id="current_loc" placeholder="Enter your current location." /> 
-            <input id="origin" name="origin" required="" type="hidden" />
-        </div>
+<!--
+    - set this up as an HTML page with correct wrapper and container
+    - this is to make sure your chart isn't Huge when it appears
+    - Import your stylesheet in the head
+    - Import your bar chart from https://canvasjs.com/html5-javascript-bar-chart/
+    - Import script.js before your body closing tag
+    - add a div with an id of chartContainer
 
-        <div class="form-group">
-            <label>Voting County: </label> 
-            <input class="form-control" id="user_county" placeholder="Enter your voting county" /> 
-            <input id="county" name="county" required="" type="hidden" />
-        </div>
-          <button
-            type="submit"
-            class="submitButton"
-            name="submitButton"
-          >Create A Checklist</button>
-        </form>
-      </div>
-    </div>
-    <script src="script.js">
-      
-    </script>
-  </body>
-</html>
+
+    - TRY THIS: type "doc" at the top of this file and press "tab" for Emmet autocomplete support
+-->
+
+

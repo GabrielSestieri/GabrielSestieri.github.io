@@ -1,28 +1,56 @@
-// You may wish to find an effective randomizer function on MDN.
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
+function convertRestaurantsToCategories(restaurantList) {
+  // process your restaurants here!
+  return list;
 }
 
-function range(int) {
-  const arr = [];
-  for (let i = 0; i < int; i += 1) {
-    arr.push(i);
-  }
-  return arr;
+function makeYourOptionsObject(datapointsFromRestaurantsList) {
+  // set your chart configuration here!
+  CanvasJS.addColorSet('customColorSet1', [
+    // add an array of colors here https://canvasjs.com/docs/charts/chart-options/colorset/
+  ]);
+
+  return {
+    animationEnabled: true,
+    colorSet: 'customColorSet1',
+    title: {
+      text: 'Change This Title'
+    },
+    axisX: {
+      interval: 1,
+      labelFontSize: 12
+    },
+    axisY2: {
+      interlacedColor: 'rgba(1,77,101,.2)',
+      gridColor: 'rgba(1,77,101,.1)',
+      title: 'Change This Title',
+      labelFontSize: 12,
+      scaleBreaks: {customBreaks: []} // Add your scale breaks here https://canvasjs.com/docs/charts/chart-options/axisy/scale-breaks/custom-breaks/
+    },
+    data: [{
+      type: 'bar',
+      name: 'restaurants',
+      axisYType: 'secondary',
+      dataPoints: datapointsFromRestaurantsList
+    }]
+  };
 }
 
-function sortFunction(a, b, key) {
-  if (a[key] < b[key]) {
-    return -1;
-  } if (a[key] > b[key]) {
-    return 1;
-  }
-  return 0;
+function runThisWithResultsFromServer(jsonFromServer) {
+  console.log('jsonFromServer', jsonFromServer);
+  sessionStorage.setItem('restaurantList', JSON.stringify(jsonFromServer)); // don't mess with this, we need it to provide unit testing support
+  // Process your restaurants list
+  // Make a configuration object for your chart
+  // Instantiate your chart
+  const reorganizedData = convertRestaurantsToCategories(jsonFromServer);
+  const options = makeYourOptionsObject(reorganizedData);
+  const chart = new CanvasJS.Chart('chartContainer', options);
+  chart.render();
 }
 
-document.body.addEventListener('submit', async (evt) => {
- // this stops whatever the browser wanted to do itself.
-  const form = $(evt.target).serializeArray(); // here we're using jQuery to serialize the form
+// Leave lines 52-67 alone; do your work in the functions above
+document.body.addEventListener('submit', async (e) => {
+  e.preventDefault(); // this stops whatever the browser wanted to do itself.
+  const form = $(e.target).serializeArray();
   fetch('/api', {
     method: 'POST',
     headers: {
@@ -31,44 +59,8 @@ document.body.addEventListener('submit', async (evt) => {
     body: JSON.stringify(form)
   })
     .then((fromServer) => fromServer.json())
-    .then((fromServer) => {
-      evt.preventDefault();
-
-      $(document).ready(function () {
-        // add input listeners
-          var current_loc = new google.maps.places.Autocomplete((document.getElementById('current_loc')), {
-            types: ['geocode'],
-          });
-
-          var voting_county = new google.maps.places.Autocomplete((document.getElementById('user_county')), {
-            types: ['geocode']
-          });
-
-          google.maps.event.addListener(current_loc, 'place_changed', function () {
-            var current_loc = current_loc.getPlace();
-            var from_address = current_loc.formatted_address;
-          });
-
-          google.maps.event.addListener(voting_county, 'place_changed', function () {
-            var current_loc = current_loc.getPlace();
-            var from_address = current_loc.formatted_address;
-          });
-
-
-          const sortedCountries = randomCountries.sort((a, b) => sortFunction(b, a, 'name'));
-
-          $('.flex-outer form .flex-inner').remove();
-          $('.flex-outer form').prepend("<ol class='flex-inner'></ol>");
-
-          const listContent = sortedCountries.map((country) => `<li> <input type="checkbox" id="${country.county}" name="name" value="${country.address}">`
-            + `<label for="country.name">${country.county}</label></li>`);
-          $('.flex-inner').append(listContent);
-        })
-
-      });
-    })
-    .catch((err) => console.log(err));
-  }
-
-
-
+    .then((jsonFromServer) => runThisWithResultsFromServer(jsonFromServer))
+    .catch((err) => {
+      console.log(err);
+    });
+});
