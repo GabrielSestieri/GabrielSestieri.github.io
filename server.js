@@ -4,7 +4,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import countries from './public/lab_6/countries.js';
-import locations from './public/lab_7/locations.js';
+
 
 dotenv.config();
 
@@ -29,7 +29,7 @@ app.route('/api')
   .post((req, res) => {
     console.log('POST request detected');
     console.log('Form data in res.body', req.body);
-    res.json(locations);
+    res.send('Hello World');
   });
 
 app.listen(port, () => {
