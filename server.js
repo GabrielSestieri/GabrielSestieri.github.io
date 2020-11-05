@@ -22,17 +22,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.route('/api6')
-  .get(async (req, res) => {
-    console.log('GET request detected');
-    console.log(`Lab 5 for ${process.env.NAME}`);
-  })
-  .post(async (req, res) => {
-    console.log('POST request detected');
-    console.log('Form data in res.body', req.body);
-    res.json(countries);
-  });
-
 app.route('/api')
   .get(async (req, res) => {
     console.log('GET request detected');
