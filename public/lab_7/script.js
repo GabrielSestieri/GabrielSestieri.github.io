@@ -1,6 +1,18 @@
 function convertRestaurantsToCategories(restaurantList) {
   // process your restaurants here!
-  return list;
+  const newDataShape = restaurantList.reduce((current, item, i) => {
+    const findCat = current.find((findItem) => findItem.label === item.category);
+    if (!findCat) {
+      current.push({
+        label: item.category,
+        y: 1
+      });
+    } else {
+      findCat.y += 1;
+    }
+    return current;
+  }, []);
+  return newDataShape;
 }
 
 function makeYourOptionsObject(datapointsFromRestaurantsList) {
