@@ -4,7 +4,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import fetch from 'node-fetch';
-import countries from 'countries.js'
+import countries from 'countries.js';
 
 
 dotenv.config();
