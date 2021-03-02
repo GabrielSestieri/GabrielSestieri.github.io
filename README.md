@@ -20,7 +20,7 @@ It'll be great! But it is tricky to get there.
 ### Keeping Up To Date With The Course Repository
 * You cannot publish your changes to the course repository.
 * Instead, you will need to add a remote to your code base, and publish your work there.
-
+g
 #### Github Pages
 So: First, get set up with Github Pages by following the instructions present here: https://pages.github.com/
 - "User or Organization site"
